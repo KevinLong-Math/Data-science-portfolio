@@ -1,0 +1,33 @@
+
+#include<iostream>
+#include<cmath>
+#include"Circle.h"
+
+using namespace std;
+
+const double PI= 3.1415;
+
+
+Circle::Circle(){
+    radius= 1;
+    numberOfCircles++;
+}
+
+Circle::Circle(double userRadius){
+ radius= userRadius;   
+ numberOfCircles++;
+}
+
+double Circle::getRadius(){
+    return radius;
+}
+
+void Circle::setRadius(double userRadius){
+    radius = userRadius;
+}
+
+double Circle::getArea(){
+    double area =0;
+    area = radius*radius*PI;
+    return area;
+}
