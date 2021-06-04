@@ -1,0 +1,27 @@
+
+#include<iostream>
+#include<cmath>
+
+using namespace std;
+
+#ifndef Circle_H
+#define Circle_H
+
+class Circle{
+    
+public:
+
+Circle();
+Circle(double userRadius);
+
+void setRadius(double userRadius);
+double getArea();
+double getRadius();
+static int getNumberOfCircles();
+
+private:
+    int numberOfCircles;
+    double radius;
+};
+
+#endif 
