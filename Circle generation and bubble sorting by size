@@ -1,0 +1,53 @@
+//Main file for randomly generating circles and sorting them from smallest to biggest size.
+#include<iostream>
+#include<cmath>
+#include<ctime>
+#include"Circle.h"
+
+using namespace std;
+
+void swapRadius(Circle& a,Circle& b){
+    double temp;
+    temp= b.getRadius();
+    b.setRadius(a.getRadius());
+    a.setRadius(temp);
+}
+
+void bubbleSort(Circle a[], int arrSize){
+    for(int i=0; i<arrSize-1; i++){
+        for(int j=0; j<arrSize-i-1;j++){
+           if(a[j].getRadius() > a[j+1].getRadius()) {
+               swapRadius(a[j],a[j+1]);
+           }
+    }
+}
+}
+
+int main (){
+    
+    srand(static_cast<int>(time(0)));
+    double randomNum= 10.0;
+    const int arraySize =20;
+    
+    Circle array[arraySize]= {0.0};
+    
+    //prints out contents of array before sorting
+    for (int i =0;i<arraySize;i++){
+        randomNum = (90.0 - 10.0) * ( (double)rand() / (double)RAND_MAX ) + 10.0;
+        array[i]=Circle(randomNum);
+    }
+    cout<<"Unsorted Objects: \n\n";
+    for (int j=0; j<arraySize; j++){
+        cout<< "object in array element "<<j<< " Radius: "<< array[j].getRadius()<< "\n\t\t\t "<< " Area: "<<array[j].getArea()<<"\n";
+    }
+    
+    bubbleSort(array,arraySize);    
+    //prints out contents of array after sorting
+    cout<<endl;
+    cout<<"Sorted objects: \n\n";
+    
+    for (int j=0; j<arraySize; j++){
+        cout<< "object in array element "<<j<< " Radius: "<< array[j].getRadius()<< "\n\t\t\t "<< " Area: "<<array[j].getArea()<<"\n";
+    }
+    return 0;
+}
